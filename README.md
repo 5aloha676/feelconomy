@@ -360,3 +360,56 @@ export default function HomePage() {
     </main>
   );
 }
+
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'Feel-conomy',
+  description: '감정 기반 소비/저축 제안 웹 앱',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ko">
+      <body>{children}</body>
+    </html>
+  );
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+action: {
+  label: '배달 앱 열기',
+  href: 'baemin://',
+  kind: 'delivery'
+}
+
+const openExternalApp = () => {
+  window.location.href = 'baemin://';
+  setTimeout(() => {
+    window.open('https://www.baemin.com/', '_blank');
+  }, 800);
+};
